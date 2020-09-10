@@ -1,0 +1,154 @@
+"Actions" {
+    "{i}"    {        "button"    "left",
+        "action"    "down",
+        "delay"    "0.0"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "up",
+        "delay"    "0.07022809982299805"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "double",
+        "delay"    "0.06856584548950195"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "up",
+        "delay"    "0.07579755783081055"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "double",
+        "delay"    "0.0827784538269043"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "up",
+        "delay"    "0.061835289001464844"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "double",
+        "delay"    "0.07779192924499512"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "up",
+        "delay"    "0.06283116340637207"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "double",
+        "delay"    "0.08178353309631348"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "up",
+        "delay"    "0.06981110572814941"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "double",
+        "delay"    "0.06582450866699219"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "up",
+        "delay"    "0.05998516082763672"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "double",
+        "delay"    "0.08273839950561523"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "up",
+        "delay"    "0.06005501747131348"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "double",
+        "delay"    "0.0804891586303711"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "up",
+        "delay"    "0.06055903434753418"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "double",
+        "delay"    "0.0743107795715332"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "up",
+        "delay"    "0.07081031799316406"
+    },
+    "{i}"    {        "button"    "right",
+        "action"    "double",
+        "delay"    "0.3540537357330322"
+    },
+    "{i}"    {        "button"    "right",
+        "action"    "up",
+        "delay"    "0.07679462432861328"
+    },
+    "{i}"    {        "button"    "right",
+        "action"    "down",
+        "delay"    "0.618424654006958"
+    },
+    "{i}"    {        "button"    "right",
+        "action"    "up",
+        "delay"    "0.1296539306640625"
+    },
+    "{i}"    {        "button"    "x2",
+        "action"    "double",
+        "delay"    "0.13065028190612793"
+    },
+    "{i}"    {        "button"    "x2",
+        "action"    "up",
+        "delay"    "0.2987499237060547"
+    },
+    "{i}"    {        "button"    "x",
+        "action"    "double",
+        "delay"    "0.318798303604126"
+    },
+    "{i}"    {        "button"    "x",
+        "action"    "up",
+        "delay"    "0.3069949150085449"
+    },
+    "{i}"    {        "button"    "x2",
+        "action"    "double",
+        "delay"    "0.26245641708374023"
+    },
+    "{i}"    {        "button"    "right",
+        "action"    "double",
+        "delay"    "0.016954421997070312"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "double",
+        "delay"    "0.007978439331054688"
+    },
+    "{i}"    {        "button"    "x2",
+        "action"    "up",
+        "delay"    "0.1894233226776123"
+    },
+    "{i}"    {        "button"    "right",
+        "action"    "up",
+        "delay"    "0.11269974708557129"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "up",
+        "delay"    "0.07854270935058594"
+    },
+    "{i}"    {        "button"    "right",
+        "action"    "double",
+        "delay"    "0.3637125492095947"
+    },
+    "{i}"    {        "button"    "right",
+        "action"    "up",
+        "delay"    "0.15558409690856934"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "double",
+        "delay"    "0.09178686141967773"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "up",
+        "delay"    "0.11580443382263184"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "double",
+        "delay"    "0.38667893409729004"
+    },
+    "{i}"    {        "button"    "left",
+        "action"    "up",
+        "delay"    "0.087738037109375"
+    },
+}

@@ -1,26 +1,21 @@
 import collections
 import pyautogui
+import mouse, keyboard
 import pyscreeze
 import win32api
 import win32gui
 import win32con
+from window_input import Window, Key
 import time
 import keyboard
 
 Point = collections.namedtuple("Point", "x y")
 
 
-def click(x, y=None):
-    if y is None:
-        y = x[1]
-        x = x[0]
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, x, y, 0, 0)
-    win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, x, y, 0, 0)
-
-
 class Potion:
-    def __init__(self):
-        self.selection = None
+    def __init__(self, win):
+        self.selection = []
+        self.window = win
         self.stop_making = False
         self.placements = [
             Point(x=1042, y=304),
@@ -35,23 +30,25 @@ class Potion:
     def scroll(self):
         x = self
         for _ in range(2):
-            pyautogui.click(1452, 834)
-
+            mouse.move(1452, 834)
+            mouse.click()
 
     def select(self):
         #self.scroll()  # Disable if t1
         #time.sleep(.2)  # Disable if t1
-        pyautogui.click(self.selection)
+        mouse.move(*self.selection)
+        mouse.click()
         time.sleep(.5)
-        pyautogui.click(Point(x=1208, y=574))
+        mouse.move(1208, 574)
+        mouse.click()
 
     def create(self):
         pass
 
 
 class SwiftFoot(Potion):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, win):
+        super().__init__(win)
         # 1 - Point(x=1134, y=296)
         # 3 - Point(x=1157, y=840)
         self.selection = Point(x=1134, y=296)
@@ -67,9 +64,9 @@ class SwiftFoot(Potion):
                 else:
                     strikes = 0
                 if strikes > 5:
-                    pyautogui.click(666, 845)
+                    self.window.click(666, 845)
                     time.sleep(.5)
-                    pyautogui.click(1208, 573)
+                    self.window.click(1208, 573)
                     time.sleep(1)
                     return
             if block_one and block_two:
@@ -126,13 +123,13 @@ class SwiftFoot(Potion):
                 time.sleep(2)
 
     def get_colors(self):
-        pyautogui.moveTo(1000, 520)
+        mouse.move(1000, 520)
         time.sleep(.5)
-        if pyscreeze.pixelMatchesColor(x=1008, y=109, expectedRGBColor=(111, 66, 37), tolerance=2):
+        if self.window.pixel(1008, 109) == (111, 66, 37):
             return [False, False]
         colors = [
-            pyscreeze.pixel(1010, 144),
-            pyscreeze.pixel(1076, 186)
+            self.window.pixel(1010, 144),
+            self.window.pixel(1076, 186)
         ]
         blocks = []
         for color in colors:
@@ -147,7 +144,11 @@ class SwiftFoot(Potion):
 
     @property
     def complete(self):
-        return pyscreeze.pixelMatchesColor(x=950, y=487, expectedRGBColor=(254, 1, 0), tolerance=2)
+        return self.window.pixel(950, 487) == (254, 1, 0)
+
+    @property
+    def full(self):
+        return self.window.pixel(1156, 493) == (255, 255, 255)
 
 
 def stop_brewing(current_potion):
@@ -155,8 +156,7 @@ def stop_brewing(current_potion):
 
 
 def brew():
-    potion = SwiftFoot()
-    keyboard.on_press_key("`", [potion])
+    potion = SwiftFoot(Window())
     while not potion.stop_making:
         if "irate" in win32gui.GetWindowText(win32gui.GetForegroundWindow()):
             potion.select()
@@ -165,4 +165,6 @@ def brew():
 
 
 if __name__ == "__main__":
+    time.sleep(3)
     brew()
+

@@ -13,6 +13,7 @@ from PIL import Image
 import keyboard
 from window_input import Window, Key
 import tlopo_util
+import os
 
 Point = collections.namedtuple("Point", "x y")
 FAMED = 1001
@@ -115,12 +116,18 @@ def filter_loot(tlopo):
             else:
                 new_data.append((0, 0, 0))
         img.putdata(new_data)
-        img.save("./images/looted/test_loot{}.png".format(random.randint(999, 9999999)))
+        if rating == 2:
+            img.save("./images/looted/chests/{}.png".format(len(os.listdir("./images/looted/chests"))))
+        else:
+            img.save("./images/looted/skulls/{}.png".format(len(os.listdir("./images/looted/skulls"))))
         rar = detect_rarity(img)
-        if rar == LEGENDARY or rar == FAMED:
-            tlopo.bring_to_front()
+        tlopo.bring_to_front()
+        if rar == LEGENDARY:
+            pyautogui.click(800, 525)
+            tlopo.click(800, 525)
         else:
             tlopo.click(464, 287)
+
     elif rating != 0:
         tlopo.click(464, 287)
         time.sleep(1)
@@ -216,9 +223,29 @@ def check_loot_rating(tlopo):
             skulls += 1
     return skulls
 
+def view_loot():
+    looted = 0
+    famed = 0
+    legendaries = 0
+    for file in os.listdir("./images/looted"):
+        img = Image.open("./images/looted/"+file)
+        rar = detect_rarity(img)
+        if rar != FAMED and rar != LEGENDARY:
+            looted += 1
+        elif rar == FAMED:
+            looted += 1
+            famed += 1
+        elif rar == LEGENDARY:
+            looted += 1
+            legendaries += 1
+    print(looted)
+    print(famed)
+    print(legendaries)
+
 
 if __name__ == "__main__":
     time.sleep(3)
     tlopo = Window()
-    farm(tlopo, swing_sword, False, False, False, True, filter_loot)
+    kwargs = {"attack": swing_sword, "track_now": False, "collect": False, "delay": False, "jump": False, "post_kill_sequence": filter_loot, "target": "eitc"}
+    farm(tlopo, **kwargs)
 

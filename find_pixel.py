@@ -9,15 +9,15 @@ top_strike_point = (787, 420)
 bot_strike_point = (787, 648)
 
 
-def show_pixels():
-    win = Window()
+def show_pixels(*args):
     px = pyautogui.position()
     print(px)
-    print(win.pixel(834, 93))
+    print(pyscreeze.pixel(px[0], px[1]))
 
 
 if __name__ == "__main__":
-    x = mouse.on_click(show_pixels)
-    while type(x) != int:
+    mouse.on_click(show_pixels)
+    keyboard.on_press_key("`", show_pixels)
+    while True:
         pass
 

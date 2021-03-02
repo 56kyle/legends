@@ -2,7 +2,7 @@
 A variety of scripts for automating different tasks in the game "The Legends of Pirates Online" (TLOPO for short)
 
 ## Overview
-There is a ton of stuff inside this repository, most of which was just made on the fly as I was playing the game. Some of the most notable files are as follows:
+There is a ton of stuff inside this repository, most of which was just made on the fly as I was playing the game. Some of the most notable scripts are as follows:
   - the brew directory (automates the potion minigame which allows for easily leveling new accounts)
   - twins.py (allows afk farming of enemies for rare items)
   - bilge_pumping.py, hull_bracing.py, hull_patching.py, hull_scrubbing.py, hammering.py, and plank_sawing.py all automate various minigames that appear when repairing your ship
